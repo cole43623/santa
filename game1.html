@@ -353,8 +353,9 @@
       setTimeout(() => {
         i++;
         if (i >= allPlayers.length) {
-          document.getElementById('voteModal').style.display = 'flex';
           i = -1;
+          passa();
+          document.getElementById('voteModal').style.display = 'flex';
         } else {
           // Reset card pos
           card.style.transition = 'none';
@@ -385,7 +386,6 @@
     }
     function startVoting() {
       // Nasconde il modal
-      passa();
       document.getElementById('voteModal').style.display = 'none';
     }
   </script>
