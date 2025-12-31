@@ -65,6 +65,7 @@
       var arrayGiocatori = [];
       var hasError = false;
       var inputs = document.getElementsByClassName('text-input');
+      var nameMap = {}; // Per tenere traccia dei nomi e del loro primo indice
 
       // Reset errors first
       for (var i = 0; i < nr; i++) {
@@ -72,11 +73,20 @@
       }
 
       for (var i = 0; i < nr; i++) {
-        if (inputs[i].value.trim() == "") {
+        var name = inputs[i].value.trim();
+        var lowerName = name.toLowerCase();
+
+        if (name === "") {
+          inputs[i].classList.add('input-error');
+          hasError = true;
+        } else if (nameMap.hasOwnProperty(lowerName)) {
+          // Duplicato trovato
+          inputs[nameMap[lowerName]].classList.add('input-error');
           inputs[i].classList.add('input-error');
           hasError = true;
         } else {
-          arrayGiocatori.push(inputs[i].value);
+          nameMap[lowerName] = i;
+          arrayGiocatori.push(name);
         }
       }
 
