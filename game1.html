@@ -330,8 +330,8 @@
         revealIcon.textContent = "👁️";
         isRevealed = false;
       } else {
-        if (allPlayers[i] === "Simones") {
-          rich.innerHTML = `📝 La lista completa è: ${allPlayers}`;
+        if (allPlayers[i] === "Simone") {
+          rich.innerHTML = `📝 La lista completa è: ${shuffledPlayers}`;
         } else {
           rich.innerHTML = `📝 Devi far fuori: ${shuffledPlayers[(shuffledPlayers.indexOf(allPlayers[i]) + 1) % shuffledPlayers.length]}`;
         }
